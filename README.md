@@ -9,7 +9,7 @@ Build a table similar to the "Sisyphus Magic Sand Coffee Table" that displays a 
 ### Mechanical/Physical
 
 1. We need a table
-2. We need a X-Y axis system like below
+2. We need a X-Y axis system like below -- COVERED
 3. We need to think about the physical constraints of the table
 
 The main component of the table is an X-Y axis system (like the 3 rail system below) 
@@ -17,6 +17,7 @@ The main component of the table is an X-Y axis system (like the 3 rail system be
 ![](./kriebels.JPG)
 
 4. We may need to develop our own PCB to drive the stepmotors in an orderly fashion.
+
 
 ### Firmware prequisites
 
@@ -27,20 +28,27 @@ The main component of the table is an X-Y axis system (like the 3 rail system be
 
 This last bullet point presents its own problems. Is this done with fourier? Everything has to be drawn in a single line so I don't think this will be easy. 
 
+Professors suggested we used CNC and GCODE to send commands to the drivers/stepmotors and treat the table as a "2D" 3D printer, cancelling out the Z-axis. 
+
+We need to find a library to send and receive the GCODE commands. 
+
+https://github.com/grbl/grbl is a library that will run on a vanilla Arduino, but we would have to refactor the code to make it work on a nucleo (OR WE COULD JUST USE AN ARDUINO IDK).
+
+DEZE WERKT MET CPP MAAR GEEN DOCUMENTATIE
+https://github.com/x893/CNC-STM32 
+
+
 ## Preliminary BOM
 
-3 x rail system (geslepen as)
+3 x rail system (geslepen as)       GOT IT
 1 x ledstrips (ws2812 of ws281X)
-2(3) x step motor
-1 x microcontroller (stm32 type)
-3 x riemen
-3 x tandwielen
-1 x raspberry pi
-1 x (strong) magnet
+2(3) x step motor                   GOT IT 
+1 x microcontroller (stm32 type)    GOT IT  
+3 x riemen                          GOT IT  
+3 x tandwielen                      GOT IT  
+1 x raspberry pi                    GOT IT  
+1 x (strong) magnet     
 1 x zand
 1 x zeil
+1 X tafel/glas/...
 
-
-## TODO 
-
-eventueel ontwerpen van PCB van motordrivers
