@@ -1,16 +1,18 @@
-#pragma once
+#pragma once 
 #include <iostream>
-#include "stepMotor.h"
+#include "figure.h"
 
-class SandTable {
+class SandTable{
 
     public:
-    SandTable(); //default constructors
-    SandTable(StepMotor *yMotor, StepMotor *xMotor);
+    SandTable(void); //default constructor
+    void sendFigure(Figure figure);
+    void resetPosition();
+    void testSerialPort();
 
 
     private:
-    StepMotor *_stepMotorY;
-    StepMotor *_stepMotorX;
-    
-};
+    Figure _figure;
+
+
+};          

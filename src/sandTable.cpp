@@ -1,15 +1,27 @@
 #include "sandTable.h"
+#include "mbed.h"
+#include <stdint.h>
 
-SandTable::SandTable(){};
 
-SandTable::SandTable(StepMotor *yMotor, StepMotor *xMotor){
+static BufferedSerial pc(USBTX, USBRX, 115200);
 
-    this->_stepMotorX = xMotor;
-    this->_stepMotorY = yMotor;
+
+
+SandTable::SandTable(void){};
+
+void SandTable::sendFigure(Figure figure){
+
 
 }
 
+void SandTable::resetPosition(){
 
 
 
+}
 
+void SandTable::testSerialPort(){
+
+    
+
+}
