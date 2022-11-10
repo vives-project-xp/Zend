@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"></link> -->
+    <!-- <script defer src="script.js" charset="utf-8"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css"></link>
+    <title>Sands of Time</title>
+</head>
+<body>
+    <div id="main">
+        <h1>Control Panel</h1>
+        <div id="led-div">
+            <h2>Led control panel</h2>
+            <div id="basic-settings-div">
+                <h3>Basic settings</h3>
+                <div id="on-off-div">
+                    <button id="led-on" onclick="turnLedOn()">Turn led on</button>
+                    <button id="led-off" onclick="turnLedOff()">Turn led off</button>
+                </div>
+                <div id="brightness-div">
+                    <label>Brightness</label>
+                    <input type="range" min="0" max="255" value="50" class="slider" id="brightness">
+                </div>
+                <div id="colors-div">
+                    <label>Primary color</label>
+                    <input type="color" id="primary_led_color" value="#ff0000">
+                    <label>Secondary color</label>
+                    <input type="color" id="secondary_led_color" value="#00ff00">
+                </div>
+            </div>
+            <div id="effect-index" >
+                <h3 onload="addEffects()">Effects</h3>
+                <div id="effect-option-list">
+                <select id="options" onchange="changeEffect()"></select>
+                </div>
+                <div id="effect-speed">
+                    <label>Effect speed</label>
+                    <input type="range" min="0" max="255" value="50" class="slider" id="effect_speed">
+                </div>
+            </div>
+        </div>
+        <div id="sand-div">
+            <h2>Sand Patterns Control Panel</h2>
+            <div id="patterns-div">
+                <select id="sand-pattern-options" onchange="changeSandPattern()"></select>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="script.js"></script>
+</html>

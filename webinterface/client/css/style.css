@@ -1,0 +1,30 @@
+* {
+    background-color: #024059;
+    color: #F2CDAC;
+    margin: 20px;
+}
+
+button {
+    border-radius: 2em;
+    padding: 5px;
+    background-color: #026873;
+    border-color:#F2CDAC;
+}
+
+button:hover {
+    background-color: #F2CDAC;
+    color: #026873; 
+    border-color:#026873;
+}
+
+.led-div {
+    flex-direction: row;
+    width: 50%;
+    justify-self: left;
+}
+
+.sand-div {
+    flex-direction: row;
+    width: 50%;
+    justify-self: right;
+}

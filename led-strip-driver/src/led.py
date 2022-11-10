@@ -40,7 +40,7 @@ class LedStrip:
             self.__effect_index = 0
         else:
             self.__effect_index = effect_index
-        full_url = str(self.getUrl()) + '/win&FX={}&T=1'.format(str(self.__effect_index))
+        full_url = str(self.getUrl()) + '/'.format(str(self.__effect_index))
         r = requests.get(url = full_url)
         print("Effect URL = " + full_url)
         print("Brightness at effect is: " + str(self.getBrightness()))

@@ -3,7 +3,7 @@ import time
 
 from src.led import LedStrip
 
-url = "http://172.16.101.72"
+url = "http://172.16.101.194"
 zend_ledstrip = LedStrip(8, url)
 time.sleep(2)
 zend_ledstrip.setBrightness(50)
