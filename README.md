@@ -12,6 +12,10 @@ Build a table similar to the "Sisyphus Magic Sand Coffee Table" that displays a 
 2. We need a X-Y axis system like below -- COVERED
 3. We need to think about the physical constraints of the table (really need to figure this out)
 
+**Dimensions**
+width: 48cm x 34cm
+
+
 **update 06/10/2022**
 The XY system we will take from a 3D printer, and simply remove the nozzle and the Z-axis stepmotor. There are mechanical detectors to limit the movement of the stepmotors, but we've encountered some weird behaviour where they would still try to move past the boundaries. 
 
