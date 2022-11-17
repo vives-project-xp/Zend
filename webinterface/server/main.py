@@ -1,15 +1,19 @@
 # start server IN WSL with command: uvicorn server.main:app --reload
 
+from send import hello
 from typing import Union
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+import sys
 
-from pi_code.python.sender import *
 
-sender = Sender()
+#from sendLib import sender 
 
+#sender = sender.Sender()
+
+hello.printSomething()
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")

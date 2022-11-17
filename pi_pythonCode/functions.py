@@ -56,9 +56,3 @@ class Functions:
         return self._intX
     def getIntY(self):
         return self._intY
-
-
-testFunction = Functions()
-testFunction.spiral()
-
-testFunction.plotFigure()   
