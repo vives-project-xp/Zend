@@ -1,8 +1,11 @@
+// start client side server with "http-server"
+
+//const { default: axios } = require("axios");
+
 let ledStatus = document.getElementById('led-status');
 let ledButton = document.getElementById('switch-led');
 
-
-const url = "http://172.16.101.218/"
+const url = "http://172.16.102.39/"
 var brightness_slider = document.getElementById("brightness");
 var brightness = brightness_slider.value;
 
@@ -14,6 +17,9 @@ var primary_color = color_picker_primary.value.toString();
 
 var color_picker_secondary = document.getElementById("secondary_led_color");
 var secondary_color = color_picker_secondary.value.toString();
+
+var selected_pattern = document.getElementById("sand-pattern-options").value;
+
 
 
 var effectIndices = [
@@ -31,7 +37,7 @@ var patternOptions = [
     {"0" : "Coil figure"},
     {"1" : "Star"},
     {"2" : "Spiral"}
-]
+];
 
 $.each(effectIndices, function(i){
     $.each(effectIndices[i], function(index, effect) {
@@ -51,7 +57,6 @@ $.each(patternOptions, function(i){
     }) 
 });
 
-
 function turnLedOn(){
     const new_url = url + "win&T=1";
     axios.get(new_url);
@@ -62,14 +67,7 @@ function turnLedOff(){
     axios.get(new_url);
 }
 
-brightness_slider.oninput = function setBrightness(){
-    brightness = brightness_slider.value;
-    const new_url = url + "win&A=" + brightness.toString() + "&T=1";
-    console.log("brightness = " + brightness);
-    axios.get(new_url);
-}
-
-brightness_slider.onchange = function setBrightness(){
+function setBrightness(){
     brightness = brightness_slider.value;
     const new_url = url + "win&A=" + brightness.toString() + "&T=1";
     console.log("brightness = " + brightness);
@@ -77,15 +75,15 @@ brightness_slider.onchange = function setBrightness(){
 }
 
 color_picker_primary.oninput = function changePrimaryColor(){
-    color = color_picker_primary.value.toString().substring(1);
-    const new_url = url + "win&CL=h" + color + "&A=" + brightness.toString() +"&T=1"
+    primary_color = color_picker_primary.value.toString().substring(1);
+    const new_url = url + "win&CL=h" + primary_color + "&A=" + brightness.toString() +"&T=1"
     console.log(new_url)
     axios.get(new_url);
 }
 
 color_picker_secondary.oninput = function changeSecondaryColor(){
-    color = color_picker_secondary.value.toString().substring(1);
-    const new_url = url + "win&C2=h" + color + "&A=" + brightness.toString() +"&T=1"
+    secondary_color = color_picker_secondary.value.toString().substring(1);
+    const new_url = url + "win&C2=h" + secondary_color + "&A=" + brightness.toString() +"&T=1"
     console.log(new_url)
     axios.get(new_url);
 }
@@ -105,5 +103,22 @@ effect_speed_slider.oninput = function setEffectSpeed(){
 }
 
 function changeSandPattern(){
-    // function to call API to change pattern
+    var selected_pattern = document.getElementById("sand-pattern-options").value;
+    
+}
+
+function testApi(){
+    const new_url = "http://127.0.0.1:8000";
+    var selected_pattern = document.getElementById("sand-pattern-options").value;
+    axios.get(new_url)
+    .then(function (response) {
+        console.log(response.data)
+        console.log("Response from API: " + JSON.stringify(response.data))
+    });
+    const pattern_url = new_url + "/sand-pattern/" + selected_pattern.toString();
+    console.log(pattern_url);
+    axios.get(pattern_url)
+    .then(function (response){
+        console.log("Chosen pattern = " + JSON.stringify(response.data));
+    })
 }

@@ -24,13 +24,13 @@
                 </div>
                 <div id="brightness-div">
                     <label>Brightness</label>
-                    <input type="range" min="0" max="255" value="50" class="slider" id="brightness">
+                    <input type="range" min="0" max="255" value="50" class="slider" id="brightness" onchange="setBrightness()" oninput="setBrightness()">
                 </div>
                 <div id="colors-div">
                     <label>Primary color</label>
-                    <input type="color" id="primary_led_color" value="#ff0000">
+                    <input type="color" id="primary_led_color" value="#FF0000">
                     <label>Secondary color</label>
-                    <input type="color" id="secondary_led_color" value="#00ff00">
+                    <input type="color" id="secondary_led_color" value="#00FF00">
                 </div>
             </div>
             <div id="effect-index" >
@@ -49,6 +49,10 @@
             <div id="patterns-div">
                 <select id="sand-pattern-options" onchange="changeSandPattern()"></select>
             </div>
+        </div>
+        <div>
+            <h1>Test API</h1>
+            <button id="test-api" onclick="testApi()"> Test API</button>
         </div>
     </div>
     

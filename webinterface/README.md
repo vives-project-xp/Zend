@@ -15,3 +15,26 @@ The led-strip is connected to an [ESP8266](https://en.wikipedia.org/wiki/ESP8266
 (tbd)
 
 ## Server
+
+To initialize FastAPI:
+
+```pt
+
+pip install fastapi
+pip install "uvicorn[standard]"
+
+```
+
+Start server:
+
+```pt
+uvicorn server.main:app --reload
+```
+
+Start node on client side
+
+```code
+http-server
+```
+
+[Source](https://github.com/tiangolo/fastapi)
