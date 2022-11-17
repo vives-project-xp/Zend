@@ -18,6 +18,8 @@ The led-strip is connected to an [ESP8266](https://en.wikipedia.org/wiki/ESP8266
 
 To initialize FastAPI:
 
+[Source](https://github.com/tiangolo/fastapi)
+
 ```pt
 
 pip install fastapi
@@ -37,4 +39,4 @@ Start node on client side
 http-server
 ```
 
-[Source](https://github.com/tiangolo/fastapi)
+
