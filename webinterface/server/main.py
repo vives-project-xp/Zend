@@ -6,6 +6,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+from pi_code.python.sender import *
+
+sender = Sender()
+
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -34,4 +38,5 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 @app.get("/sand-pattern/{pattern_index}")
 def change_pattern(pattern_index: int):
+    sender.draw_circle()
     return {"pattern index" : pattern_index}
