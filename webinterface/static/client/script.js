@@ -1,10 +1,6 @@
 // start client side server with "http-server"
-
-const { default: axios } = require("axios");
-
 //const { default: axios } = require("axios");
 
-let main = document.getElementById('main');
 let ledStatus = document.getElementById('led-status');
 let ledButton = document.getElementById('switch-led');
 
@@ -34,10 +30,10 @@ var effectIndices = [
 ];
 
 var patternOptions = [
-    {"" : "Choose a pattern"},
-    {"0" : "Coil figure"},
-    {"1" : "Star"},
-    {"2" : "Spiral"}
+    {"0" : "Choose a pattern"},
+    {"1" : "Coil figure"},
+    {"2" : "Star"},
+    {"3" : "Spiral"}
 ];
 
 $.each(effectIndices, function(i){
@@ -98,7 +94,7 @@ color_picker_secondary.oninput = function changeSecondaryColor(){
 function changeEffect(){
     var effect = document.getElementById("options").value;
     console.log("effect index = " + effect);
-    const new_url = url + "win&FX=" + effect.toString()+ "&T=1";
+    const new_url = url + "win&FX=" + effect.toString()+ "&T=1&A=" + brightness.toString();
     axios.get(new_url);
 }
 
@@ -114,18 +110,18 @@ function changeSandPattern(){
     
 }
 
-function testApi(){
+function changePattern(){
     const new_url = "http://127.0.0.1:8000";
     var selected_pattern = document.getElementById("sand-pattern-options").value;
-    axios.get(new_url)
-    .then(function (response) {
-        console.log(response.data)
-        console.log("Response from API: " + JSON.stringify(response.data))
-    });
-    const pattern_url = new_url + "/sand-pattern/" + selected_pattern.toString();
-    console.log(pattern_url);
-    axios.get(pattern_url)
+    // axios.get(new_url)
+    // .then(function (response) {
+    //     console.log(response.data)
+    //     console.log("Response from API: " + JSON.stringify(response.data))
+    // })
+    // const pattern_url = new_url + "/sand-pattern/" + selected_pattern.toString();
+    // console.log(pattern_url);
+    axios.get(new_url + "/sand-pattern/" + selected_pattern.toString())
     .then(function (response){
         console.log("Chosen pattern = " + JSON.stringify(response.data));
     })
-}
+} 
