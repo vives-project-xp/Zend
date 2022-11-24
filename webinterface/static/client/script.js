@@ -1,11 +1,14 @@
 // start client side server with "http-server"
 
+const { default: axios } = require("axios");
+
 //const { default: axios } = require("axios");
 
+let main = document.getElementById('main');
 let ledStatus = document.getElementById('led-status');
 let ledButton = document.getElementById('switch-led');
 
-const url = "http://172.16.102.39/"
+const url = "http://172.16.102.128/"
 var brightness_slider = document.getElementById("brightness");
 var brightness = brightness_slider.value;
 
@@ -19,8 +22,6 @@ var color_picker_secondary = document.getElementById("secondary_led_color");
 var secondary_color = color_picker_secondary.value.toString();
 
 var selected_pattern = document.getElementById("sand-pattern-options").value;
-
-
 
 var effectIndices = [
     {"" : "Choose an effect"},
@@ -56,6 +57,12 @@ $.each(patternOptions, function(i){
         .text(pattern));
     }) 
 });
+
+function setupLed(){
+    const setup_url = url + "win&T=1&A=50&CL=hFF0000&C2=h00FF00&FX=0&SX=50";
+    axios.get(setup_url);
+
+}
 
 function turnLedOn(){
     const new_url = url + "win&T=1";
