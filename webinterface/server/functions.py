@@ -69,10 +69,3 @@ class Functions:
         return self._y
 
 
-
-test = Functions()
-test.drawPolygon(4)
-test.plotFigure()
-
-test.drawPolygon(4, 45)
-test.plotFigure()

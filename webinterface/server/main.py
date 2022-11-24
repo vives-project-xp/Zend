@@ -1,25 +1,21 @@
 # start server IN WSL with command: uvicorn server.main:app --reload
 
-from send import hello
+import time
+from .sender import Sender
+
 from typing import Union
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import sys
 
 
-#from sendLib import sender 
-
-#sender = sender.Sender()
-
-hello.printSomething()
+raspberry = Sender("ACM0")
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 origins = [
-    "http://172.16.102.25:8080/",
     "http://192.168.56.1:8080",
     "http://127.0.0.1:8080"
 ]
@@ -42,5 +38,9 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 @app.get("/sand-pattern/{pattern_index}")
 def change_pattern(pattern_index: int):
-    sender.draw_circle()
+    raspberry.initializeTable()
+    time.sleep(1)
+    raspberry.testStar()
+    print(pattern_index)
     return {"pattern index" : pattern_index}
+    
