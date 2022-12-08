@@ -1,5 +1,22 @@
 # Webinterface
 
+## LED connection
+
+When no static IP address has been setup, the connection with the LED-strip had to be setup manually. To do this, follow the steps below:
+
+* Connect the ESP8266 to a PC (or Raspberry Pi) and go to the [WLED install website](https://install.wled.me/).
+* Click 'Install' and select the right port in the pop up window and connect.
+[WLED installer](./img/WLED-installer.PNG)
+* Then click "change Wi-Fi" and enter the network name and password and connect
+* Then click continue and 'visit device'
+* Now the WLED API opens with the default configurations and in the search bar you can find the IP address.
+[WLED IP](./img/WLED-ip.PNG)
+* Copy this IP address into the [script.js file](./static/client/script.js) in the 'const url' variable.
+
+Now you are ready to change the LED effects from this webinterface!
+
+If a static IP address has been set up, the only thing that is left to do is connect the ESP8266 to a power source.
+
 ## Client
 
 A simple HTML/JS webpage has been made on which the user can control the functionalities of the Sand Table.
@@ -29,14 +46,8 @@ pip install "uvicorn[standard]"
 
 Start server:
 
+When in the webinterface directory:
+
 ```pt
 uvicorn server.main:app --reload
 ```
-
-Start node on client side
-
-```code
-http-server
-```
-
-

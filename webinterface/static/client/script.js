@@ -4,7 +4,7 @@
 let ledStatus = document.getElementById('led-status');
 let ledButton = document.getElementById('switch-led');
 
-const url = "http://172.16.102.128/"
+const url = "http://172.16.103.49/"
 var brightness_slider = document.getElementById("brightness");
 var brightness = brightness_slider.value;
 
@@ -31,7 +31,7 @@ var effectIndices = [
 
 var patternOptions = [
     {"0" : "Choose a pattern"},
-    {"1" : "Coil figure"},
+    {"1" : "Polygon"},
     {"2" : "Star"},
     {"3" : "Spiral"},
     {"4" : "Christmas tree"},
@@ -107,9 +107,15 @@ effect_speed_slider.oninput = function setEffectSpeed(){
     axios.get(new_url);
 }
 
-function changeSandPattern(){
+function getSandPattern(){
     var selected_pattern = document.getElementById("sand-pattern-options").value;
-    
+    if (selected_pattern == 4) {
+        const new_url = url + "win&CL=hFF0000&C2=h00FF00&FX=1"
+        axios.get(new_url);
+    } else {
+        const new_url = url + "win&CL=h" + primary_color + "&C2=h" + secondary_color + "&FX=" + effect.toString();
+        axios.get(new_url);
+    }
 }
 
 function changePattern(){
@@ -122,6 +128,7 @@ function changePattern(){
     // })
     // const pattern_url = new_url + "/sand-pattern/" + selected_pattern.toString();
     // console.log(pattern_url);
+    
     axios.get(new_url + "/sand-pattern/" + selected_pattern.toString())
     .then(function (response){
         console.log("Chosen pattern = " + JSON.stringify(response.data));

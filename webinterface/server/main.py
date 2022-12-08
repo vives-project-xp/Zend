@@ -1,6 +1,8 @@
 # start server IN WSL with command: uvicorn server.main:app --reload
 
-#from send import hello
+import time
+from .sender import Sender
+
 from typing import Union
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
@@ -15,7 +17,8 @@ from vives-sandtable_package_zend import Sender
 
 sender = Sender()
 
-# hello.printSomething()
+
+raspberry = Sender("ACM0")
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -43,7 +46,23 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 @app.get("/sand-pattern/{pattern_index}")
 def change_pattern(pattern_index: int):
-    #sender.draw_circle()
-    print(pattern_index)
-    return {"pattern index" : pattern_index}
+    raspberry.initializeTable()
+    time.sleep(1)
+    match pattern_index:
+        case 1:
+            # polygon
+            raspberry.
+        case 2:
+            # star
+            raspberry.
+        case 3:
+            # spiral
+            raspberry.
+        case 4:
+            # Christmas tree
+            raspberry.
+   
+    # raspberry.testStar()
+    # print(pattern_index)
+    # return {"pattern index" : pattern_index}
     
