@@ -25,6 +25,8 @@ If a static IP address has been set up, the only thing that is left to do is con
 
 A simple HTML/JS webpage has been made on which the user can control the functionalities of the Sand Table.
 
+![Sands of time Webinterface](./img/webinterface.PNG)
+
 ### Led controls
 
 All LED functionality is controlled via the webinterface. The user can turn the LED on or off, choose the brightness, primary and secondary colors, effect and effect speed. The javascript script behind the webpage sends a GET request to the WLED API to change all these parameters.
