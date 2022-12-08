@@ -10,7 +10,6 @@ in Command line - in sandtable-package directory:
     * username: __token__
     * password: token from PyPI
 
-
 In command line van interface directory:
 - python3 -m pip install vives-sandtable_package_zend
 

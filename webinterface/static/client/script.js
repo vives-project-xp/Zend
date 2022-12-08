@@ -33,7 +33,9 @@ var patternOptions = [
     {"0" : "Choose a pattern"},
     {"1" : "Coil figure"},
     {"2" : "Star"},
-    {"3" : "Spiral"}
+    {"3" : "Spiral"},
+    {"4" : "Christmas tree"},
+    
 ];
 
 $.each(effectIndices, function(i){

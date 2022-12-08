@@ -7,15 +7,13 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import sys
-
-
-# from vives-sandtable_package_zend import Sender
+from vives-sandtable_package_zend import Sender
 
 # from pi_code.python.sender import *
 
 #from sendLib import sender 
 
-# sender = Sender()
+sender = Sender()
 
 # hello.printSomething()
 
