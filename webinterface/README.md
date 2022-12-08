@@ -6,12 +6,14 @@ When no static IP address has been setup, the connection with the LED-strip had 
 
 * Connect the ESP8266 to a PC (or Raspberry Pi) and go to the [WLED install website](https://install.wled.me/).
 * Click 'Install' and select the right port in the pop up window and connect.
-[WLED installer](./img/WLED-installer.PNG)
+
 * Then click "change Wi-Fi" and enter the network name and password and connect
 * Then click continue and 'visit device'
 * Now the WLED API opens with the default configurations and in the search bar you can find the IP address.
-[WLED IP](./img/WLED-ip.PNG)
 * Copy this IP address into the [script.js file](./static/client/script.js) in the 'const url' variable.
+
+[WLED installer](./img/WLED-installer.PNG)
+[WLED IP](./img/WLED-ip.PNG)
 
 Now you are ready to change the LED effects from this webinterface!
 
