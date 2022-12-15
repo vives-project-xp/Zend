@@ -8,10 +8,13 @@ Build a table similar to the "Sisyphus Magic Sand Coffee Table" that displays a 
 
 ### Mechanical/Physical
 
-We used a 3D printer (Ultimaker) and removed the Z-axis controls. For the table itself we used a Lack table from Ikea. 
+We used a 3D printer (Ultimaker) and removed the Z-axis controls. A grbl shield attached to an arduino interfaces with the stepper motors. 
+For the table itself we used a Lack table from Ikea. The sand itself is kept in a plexiglass tray. The ball is moved by magnets attached to the 3d printer and draws geometrical figures in the sand. 
+
 
 **Dimensions**
 width: 48cm x 34cm
+height:xxx
 
 
 
@@ -22,8 +25,7 @@ This is an alternative to more complex firmware like Marlin and runs on a vanill
 
 
 1. X-Y axis can be manipulated in a linear as well as a circular way.
-2. Letters & words could be written in the sand. Even better would be if this could be done with a touch screen (maybe this would be something for a future project).
-3. The firmware should be able to take an image and draw the figure in the sand (or at least the crude outlines). 
+
 4. RGB library for the ledstrips
 
 The third bullet point presents its own problems. Is this done with fourier? Everything has to be drawn in a single line  I don't think this will be easy. 
@@ -65,3 +67,8 @@ https://github.com/x893/CNC-STM32
 1 x zeil
 1 X tafel/glas/...
 
+
+## Ideas for future implementations
+
+1. Letters & words could be written in the sand. Even better would be if this could be done with a touch screen (maybe this would be something for a future project).
+2. The firmware should be able to take an image and draw the figure in the sand (or at least the crude outlines). 
