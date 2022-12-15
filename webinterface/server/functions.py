@@ -63,7 +63,7 @@ class Functions:
     def setRadius(self, startPointX, startPointY, endPointX, endPointY):
         self.radius = np.sqrt((endPointX - startPointX)**2 + (endPointY - startPointY)**2)
 
-    def drawPolygon(self, amount = 5, angle = 90, grow = 8):
+    def drawPolygon(self, amount, angle, grow):
         angle = (angle * np.pi / 180)
         if(grow != 1):
             growth = self.defaultGrowth*grow
@@ -82,11 +82,11 @@ class Functions:
         self._y  = self._intY.astype(str)
 
     def clearFunction(self):                #voorlopig een rampfunctie
-        y = signal.sawtooth(self._n)
-        roundY = np.around(y, 3) 10
+        y = signal.sawtooth(3*self._n)
+        roundY = np.around(y, 3) * 10
         roundX = np.around(self._n, 3) * 10
-        self._intX = abs(roundX.astype(int))
-        self._intY = abs(roundY.astype(int))
+        self._intX = roundX.astype(int)
+        self._intY = roundY.astype(int)
         self._x = self._intX.astype(str)
         self._y = self._intY.astype(str)
     
@@ -94,7 +94,7 @@ class Functions:
         plt.scatter(self._intX, self._intY)
         plt.show()
 
-    def christmasTree(self):
+    def cristmasTree(self):
         self._intX = [100, 130, 130, 175, 145, 160, 130, 145, 115, 130, 115, 100, 110, 110, 120, 105, 100, 95, 80, 90, 90, 100, 85, 70, 85, 55, 70, 40, 55, 25, 70, 70, 100]
         self._intY = [20, 20, 50, 50, 80, 80, 110, 110, 140, 140, 160, 130, 120, 150, 170, 180, 200, 180, 170, 150, 120, 130, 160, 140, 140, 110, 110, 80, 80, 50, 50, 20, 20]
         for item in self._intX:
@@ -102,7 +102,7 @@ class Functions:
         for item in self._intY:
             self._y.append(str(item))
 
-    def drawPointedStar(self, amount = 6, angle = 90, grow = 4, innerGrow = 0):
+    def drawPointedStar(self, amount = 6, angle = 90, grow = 10, innerGrow = 0):
         angle = (angle * np.pi / 180)
         amount = 2
         if amount <= 3:
