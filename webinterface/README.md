@@ -41,8 +41,12 @@ The led-strip is connected to an [ESP8266](https://en.wikipedia.org/wiki/ESP8266
 
 ### Sand patterns controls
 
-(tbd)
+Install:
 
+sudo python -m pip install scipy
+sudo apt install python3-matplotlib python3-tk
+
+To check which USB port is in use: dmesg | grep "tty"
 ## Server
 
 To initialize FastAPI:
@@ -51,8 +55,8 @@ To initialize FastAPI:
 
 ```pt
 
-pip install fastapi
-pip install "uvicorn[standard]"
+sudo pip install fastapi
+sudo pip install "uvicorn[standard]"
 
 ```
 
