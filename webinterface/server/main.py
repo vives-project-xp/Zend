@@ -8,6 +8,14 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+import sys
+#from vives-sandtable_package_zend import Sender
+
+# from pi_code.python.sender import *
+
+#from sendLib im port sender 
+
+sender = Sender()
 
 
 raspberry = Sender("ACM0")
@@ -38,10 +46,20 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 @app.get("/sand-pattern/{pattern_index}")
 def change_pattern(pattern_index: int):
-    if()
     raspberry.initializeTable()
     time.sleep(1)
-    raspberry.testStar()
-    print(pattern_index)
-    return {"pattern index" : pattern_index}
-    
+    if(pattern_index == 1):
+        raspberry.drawPolygon()
+        print(pattern_index)
+    elif(pattern_index == 2):
+        raspberry.drawStar()
+        print(pattern_index)
+    elif(pattern_index ==  3):
+        raspberry.drawSpiral()
+        print(pattern_index)
+    elif(pattern_index == 4):
+        raspberry.drawTree()
+        print(pattern_index)
+
+
+
