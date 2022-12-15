@@ -63,7 +63,7 @@ class Functions:
     def setRadius(self, startPointX, startPointY, endPointX, endPointY):
         self.radius = np.sqrt((endPointX - startPointX)**2 + (endPointY - startPointY)**2)
 
-    def drawPolygon(self, amount = 5, angle = 90, grow = 8):
+    def drawPolygon(self, amount, angle, grow):
         angle = (angle * np.pi / 180)
         if(grow != 1):
             growth = self.defaultGrowth*grow
@@ -102,7 +102,7 @@ class Functions:
         for item in self._intY:
             self._y.append(str(item))
 
-    def drawPointedStar(self, amount = 6, angle = 90, grow = 4, innerGrow = 0):
+    def drawPointedStar(self, amount = 6, angle = 90, grow = 10, innerGrow = 0):
         angle = (angle * np.pi / 180)
         amount = 2
         if amount <= 3:

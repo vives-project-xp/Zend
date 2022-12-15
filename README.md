@@ -8,25 +8,20 @@ Build a table similar to the "Sisyphus Magic Sand Coffee Table" that displays a 
 
 ### Mechanical/Physical
 
-1. We need a table
-2. We need a X-Y axis system like below -- COVERED
-3. We need to think about the physical constraints of the table (really need to figure this out)
+We used a 3D printer (Ultimaker) and removed the Z-axis controls. For the table itself we used a Lack table from Ikea. 
 
 **Dimensions**
 width: 48cm x 34cm
 
 
-**update 06/10/2022**
-The XY system we will take from a 3D printer, and simply remove the nozzle and the Z-axis stepmotor. There are mechanical detectors to limit the movement of the stepmotors, but we've encountered some weird behaviour where they would still try to move past the boundaries. 
 
-The system is currently quite loud... maybe there's a way to make it quieter? 
+### Firmware
 
-We've also received a PCB with drivers for the stepmotors, that we will have to hook up to an Arduino (cfr firmware). The connectors didn't match, so the wiring needs to be adjusted accordingly. 
+To control the 3d printer we used the grbl library. (https://github.com/grbl/grbl)
+This is an alternative to more complex firmware like Marlin and runs on a vanilla Arduino (or any other model as long as it sports an Atmega 328).
 
 
-### Firmware prequisites
-
-1. X-Y axis will have to be manipulated in a linear as well as a circular way.
+1. X-Y axis can be manipulated in a linear as well as a circular way.
 2. Letters & words could be written in the sand. Even better would be if this could be done with a touch screen (maybe this would be something for a future project).
 3. The firmware should be able to take an image and draw the figure in the sand (or at least the crude outlines). 
 4. RGB library for the ledstrips

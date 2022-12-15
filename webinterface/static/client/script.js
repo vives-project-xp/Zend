@@ -4,7 +4,8 @@
 let ledStatus = document.getElementById('led-status');
 let ledButton = document.getElementById('switch-led');
 
-const url = "http://172.16.103.132/"
+const url = "http://172.16.242.2/"
+const server_url = "http://127.0.0.1:8000"
 var brightness_slider = document.getElementById("brightness");
 var brightness = brightness_slider.value;
 
@@ -119,18 +120,10 @@ function getSandPattern(){
 }
 
 function changePattern(){
-    const new_url = "http://127.0.0.1:8000";
     var selected_pattern = document.getElementById("sand-pattern-options").value;
-    // axios.get(new_url)
-    // .then(function (response) {
-    //     console.log(response.data)
-    //     console.log("Response from API: " + JSON.stringify(response.data))
-    // })
-    // const pattern_url = new_url + "/sand-pattern/" + selected_pattern.toString();
-    // console.log(pattern_url);
-    
-    axios.get(new_url + "/sand-pattern/" + selected_pattern.toString())
-    .then(function (response){
-        console.log("Chosen pattern = " + JSON.stringify(response.data));
-    })
+    axios.get(server_url + "/sand-pattern/" + selected_pattern.toString())
 } 
+
+function stopPattern() {
+    axios.get(server_url + "/stop-pattern/")
+}
