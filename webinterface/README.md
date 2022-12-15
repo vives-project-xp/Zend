@@ -70,9 +70,9 @@ sudo systemctl start docker
 sudo reboot
 ```
 
-Test if docker is correctly installed with the "docker --version" command.
+Test if docker is correctly installed with the `docker --version` command.
 
-Then continue installation of docker  compose with: 
+Then continue installation of docker  compose with:
 
 ```
 sudo apt-get install libffi-dev libssl-dev
@@ -84,8 +84,8 @@ rustup update
 pip3 install setuptools_rust docker-compose
 ```
 
-Check if docker-compose is correctly installed with the "docker-compose --version" and "docker ps" commands.
+Check if docker-compose is correctly installed with the `docker-compose --version` and `docker ps` commands.
 
-Build with the "docker-compose up --build" command.
+Build with the `docker-compose up --build` command.
 
 Then you can surf to the IP address of the Raspberry Pi and access the webinterface.
