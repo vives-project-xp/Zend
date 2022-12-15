@@ -61,6 +61,13 @@ class Sender:
             self.send("G0 X-20")
             time.sleep(1)
             self.initializeTable()
+    
+    def hardStop(self):
+        if self.__ser.isOpen():
+            self.send("$X")
+            time.sleep(1)
+            self.send("$X")
+            self.initializeTable()
             
     #THIS IS THE MAIN FUNCTION FOR DEBUG USE. YOU CAN ENTER MANUAL COMMANDS OR TRY SOME FIGURES
     #BY TYPING "kerst" OR "parse" OR "star"                
