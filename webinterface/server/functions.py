@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 
 class Functions:
     def __init__(self):
+        #first we create a bunch of arrays for the X and Y values of the different functions
+        #the 
         self._xFunction= []
         self._yFunction= []
         self._x = []

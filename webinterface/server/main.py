@@ -55,4 +55,5 @@ def change_pattern(pattern_index: int):
 
 @app.get("/stop-pattern/")
 def stop_pattern():
-    #stop function form sender
+    #stop function from sender
+    raspberry.hardStop()
