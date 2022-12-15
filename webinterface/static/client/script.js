@@ -4,7 +4,7 @@
 let ledStatus = document.getElementById('led-status');
 let ledButton = document.getElementById('switch-led');
 
-const url = "http://172.16.103.49/"
+const url = "http://172.16.103.132/"
 var brightness_slider = document.getElementById("brightness");
 var brightness = brightness_slider.value;
 
@@ -57,13 +57,13 @@ $.each(patternOptions, function(i){
 });
 
 function setupLed(){
-    const setup_url = url + "win&T=1&A=50&CL=hFF0000&C2=h00FF00&FX=0&SX=50";
+    const setup_url = url + "win&T=1&A=50&CL=hFF0000&C2=h00FF00&FX=0&SX=50&S2=78";
     axios.get(setup_url);
 
 }
 
 function turnLedOn(){
-    const new_url = url + "win&T=1";
+    const new_url = url + "win&T=1&S2=78";
     axios.get(new_url);
 }
 

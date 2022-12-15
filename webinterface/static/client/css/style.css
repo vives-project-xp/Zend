@@ -2,12 +2,12 @@
     background-color: #024059;
     color: #F2CDAC;
     margin: 20px;
-    font-family: "Helvetica";
+    font-family: "Trebuchet MS";
 }
 
 button {
     border-radius: 2em;
-    padding: 5px;
+    padding: 5px 15px 5px 15px;
     background-color: #026873;
     border-color:#F2CDAC;
 }
@@ -28,4 +28,11 @@ button:hover {
     flex-direction: row;
     width: 50%;
     justify-self: right;
+}
+
+#options, #sand-pattern-options {
+    border-radius: 2em;
+    padding: 5px 15px 5px 15px;
+    background-color: #026873;
+
 }

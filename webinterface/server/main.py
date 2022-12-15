@@ -9,11 +9,11 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import sys
-from vives-sandtable_package_zend import Sender
+#from vives-sandtable_package_zend import Sender
 
 # from pi_code.python.sender import *
 
-#from sendLib import sender 
+#from sendLib im port sender 
 
 sender = Sender()
 
@@ -48,19 +48,19 @@ def read_item(item_id: int, q: Union[str, None] = None):
 def change_pattern(pattern_index: int):
     raspberry.initializeTable()
     time.sleep(1)
-    match pattern_index:
-        case 1:
-            # polygon
-            raspberry.
-        case 2:
-            # star
-            raspberry.
-        case 3:
-            # spiral
-            raspberry.
-        case 4:
-            # Christmas tree
-            raspberry.
+    # match pattern_index:
+    #     case 1:
+    #         # polygon
+    #         raspberry.
+    #     case 2:
+    #         # star
+    #         raspberry.
+    #     case 3:
+    #         # spiral
+    #         raspberry.
+    #     case 4:
+    #         # Christmas tree
+    #         raspberry.
    
     # raspberry.testStar()
     # print(pattern_index)

@@ -57,3 +57,35 @@ When in the webinterface directory:
 ```pt
 uvicorn server.main:app --reload
 ```
+
+## Docker
+
+To setup docker and docker-compose, run the following commands:
+
+```
+curl -sSL https://get.docker.com | sh
+sudo adduser <user> docker
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo reboot
+```
+
+Test if docker is correctly installed with the "docker --version" command.
+
+Then continue installation of docker  compose with: 
+
+```
+sudo apt-get install libffi-dev libssl-dev
+sudo apt install python3-dev
+sudo apt-get install -y python3 python3-pip
+curl https://sh.rustup.rs -sSf | sh
+source "$HOME/.cargo/env"
+rustup update
+pip3 install setuptools_rust docker-compose
+```
+
+Check if docker-compose is correctly installed with the "docker-compose --version" and "docker ps" commands.
+
+Build with the "docker-compose up --build" command.
+
+Then you can surf to the IP address of the Raspberry Pi and access the webinterface.
