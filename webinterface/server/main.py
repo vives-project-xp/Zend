@@ -48,21 +48,18 @@ def read_item(item_id: int, q: Union[str, None] = None):
 def change_pattern(pattern_index: int):
     raspberry.initializeTable()
     time.sleep(1)
-    # match pattern_index:
-    #     case 1:
-    #         # polygon
-    #         raspberry.
-    #     case 2:
-    #         # star
-    #         raspberry.
-    #     case 3:
-    #         # spiral
-    #         raspberry.
-    #     case 4:
-    #         # Christmas tree
-    #         raspberry.
-   
-    # raspberry.testStar()
-    # print(pattern_index)
-    # return {"pattern index" : pattern_index}
-    
+    if(pattern_index == 1):
+        raspberry.drawPolygon()
+        print(pattern_index)
+    elif(pattern_index == 2):
+        raspberry.drawStar()
+        print(pattern_index)
+    elif(pattern_index ==  3):
+        raspberry.drawSpiral()
+        print(pattern_index)
+    elif(pattern_index == 4):
+        raspberry.drawTree()
+        print(pattern_index)
+
+
+
