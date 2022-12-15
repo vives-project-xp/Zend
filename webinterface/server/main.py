@@ -9,14 +9,6 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import sys
-#from vives-sandtable_package_zend import Sender
-
-# from pi_code.python.sender import *
-
-#from sendLib im port sender 
-
-sender = Sender()
-
 
 raspberry = Sender("ACM0")
 

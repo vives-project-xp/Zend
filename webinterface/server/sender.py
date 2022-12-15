@@ -1,6 +1,6 @@
 import time
 import serial
-from functions import Functions
+from .functions import Functions
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)   
 GPIO.setup(24, GPIO.OUT)

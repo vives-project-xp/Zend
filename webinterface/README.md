@@ -41,12 +41,16 @@ The led-strip is connected to an [ESP8266](https://en.wikipedia.org/wiki/ESP8266
 
 ### Sand patterns controls
 
-Install:
+Dependencies for the Sand Pattern controls are:
 
+```
 sudo python -m pip install scipy
 sudo apt install python3-matplotlib python3-tk
+```
 
-To check which USB port is in use: dmesg | grep "tty"
+To verify which USB port is in use: `dmesg | grep "tty"`
+Then add that port in the [main.py file](./server/main.py) in the creation of the Sender object (here it's 'raspberry').
+
 ## Server
 
 To initialize FastAPI:
