@@ -47,14 +47,6 @@ class Functions:
         self._y = self._intY.astype(str)
 
 
-        
-    def star(self, amount = 3, angle = 0):
-        angle = (angle * np.pi / 180)
-        n = np.linspace(angle, 2*np.pi + angle, amount + 1)
-        self._xFunction = [np.cos(n)]
-        self._yFunction = [np.sin(n)]
-        
-
     def drawStar(self, amount, angle = 0, grow = 0):
         self.drawPolygon(amount, angle, grow)
         self.setRadius()

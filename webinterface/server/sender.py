@@ -10,7 +10,7 @@ GPIO.setup(24, GPIO.OUT)
 class Sender:
 
     #FIRST DEFINE THE COM PORT, BAUD RATE AND TIMEOUT. PRINT AN OK IF IT WORKS OR NOT
-    #BAUD RATE FOR ARDUINO MEGA IS 250000
+    #BAUD RATE FOR VANILLA ARDUINO IS 115200
     def __init__(self, port):
         self.__port = "/dev/tty" + str(port)
         self.__ser = serial.Serial(self.__port, 115200, timeout = 1)
@@ -62,11 +62,13 @@ class Sender:
             time.sleep(1)
             self.initializeTable()
     
+    #function for stopping the table while it's running
     def hardStop(self):
         if self.__ser.isOpen():
-            self.send("$X")
             time.sleep(1)
-            self.send("$X")
+            GPIO.output(24,0)
+            time.sleep(1)
+            GPIO.output(24,1)
             self.initializeTable()
             
     #THIS IS THE MAIN FUNCTION FOR DEBUG USE. YOU CAN ENTER MANUAL COMMANDS OR TRY SOME FIGURES
@@ -95,8 +97,8 @@ class Sender:
                             self.parseLinFunction(testFunction.getX(), testFunction.getY())
                         elif(message == "poly"):
                             self.drawPolygon()
-                        elif(message == "hardreset"):
-                            self.hardReset()
+                        elif(message == "stop"):
+                            self.hardStop()
 
                         self.__ser.write((message + "\r\n").encode())
                         time.sleep(0.1)
