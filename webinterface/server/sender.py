@@ -1,6 +1,8 @@
 import time
 import serial
+#SWITCH BETWEEN THESE TWO IMPORTS FOR WEBFUNCTIONALITY OR CONSOLE DEBUGGING WITH SAND_TABLE.PY
 from .functions import Functions
+#from functions import Functions
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)   
 GPIO.setup(24, GPIO.OUT)
@@ -61,7 +63,7 @@ class Sender:
             time.sleep(1)
             self.initializeTable()
     
-#THIS IS THE "MAIN" FUNCTION FOR DEBUG USE. YOU CAN ENTER MANUAL COMMANDS OR TRY SOME FIGURES
+#THIS IS THE "MAIN" FUNCTION FOR DEBUG USE WITH SAND_TABLE.PY. YOU CAN ENTER MANUAL COMMANDS OR TRY SOME FIGURES
 #BY TYPING "kerst" OR "parse" OR "star"                
     def manual_command(self):
         try:
@@ -88,7 +90,7 @@ class Sender:
                         elif(message == "pointy"):
                             self.drawPointyStar()
                         elif(message == "stop"):
-                            self.hardStop()
+                            self.hardReset()
                         
                         self.__ser.write((message + "\r\n").encode())
                         time.sleep(0.1)
