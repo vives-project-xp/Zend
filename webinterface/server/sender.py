@@ -130,15 +130,12 @@ class Sender:
         amount = 0
         while amount <= 10:
             star.drawPointedStar(amount, 90)
-            self.parseCircularFunction(star.getX(), star.getY())
+            self.parseLinFunction(star.getX(), star.getY())
             amount += 1
             if amount == 9:
                 amount = 0
 
 
-    def curvedStar(self):
-        curvy = Functions()
-        
 
     #function for drawing a christmas tree
     def drawTree(self):
@@ -175,14 +172,14 @@ class Sender:
     # this function can be used to parse a more complex function (see function class)
     # in a circular motion.
     def parseCircularFunction(self, arrayX, arrayY):
-            if self.__ser.isOpen():
-                for x, y in zip(arrayX, arrayY):
-                    time.sleep(0.1)
-                    i += 0.1
-                    self.__ser.write(("G3 " +"X" + x + " Y" + y + " I" + str(i) + "\r \n").encode())
-                    response = self.__ser.readlines()
-                    print(response)
-                    self.__ser.flushInput()
+        i = 0.1
+        if self.__ser.isOpen():
+            for x, y in zip(arrayX, arrayY):
+                time.sleep(0.1)                
+                self.send("G3 " +"X" + x + " Y" + y + " I" + str(i))
+                response = self.__ser.readlines()
+                print(response)
+                self.__ser.flushInput()
 
     #this function can be used to parse a more complex figure in a linear motion
     #for example the christmas tree
