@@ -61,5 +61,6 @@ def change_pattern(pattern_index: int):
         raspberry.drawTree()
         print(pattern_index)
 
-
-
+@app.get("/stop-pattern/")
+def stop_pattern():
+    #stop function form sender
