@@ -1,5 +1,11 @@
 # Webinterface
 
+## IP Addresses
+
+Static IP address for the PI: 172.16.242.1
+Static IP for the LED-strip: 172.16.242.2
+Default gateway: 172.16.0.1
+
 ## LED connection
 
 When no static IP address has been setup, the connection with the LED-strip had to be setup manually. To do this, follow the steps below:
