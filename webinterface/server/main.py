@@ -38,6 +38,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 @app.get("/sand-pattern/{pattern_index}")
 def change_pattern(pattern_index: int):
+    if()
     raspberry.initializeTable()
     time.sleep(1)
     raspberry.testStar()

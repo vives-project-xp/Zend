@@ -22,7 +22,7 @@ class Functions:
         self._intX = []
         self._intY =[]
 
-    def parser(self):
+    def parser(self, x, y):
         x = np.around(self._xFunction, self.defaultRoundDown) * self.defaultMultiplier + self.defaultOffsetX
         y = np.around(self._yFunction, self.defaultRoundDown) * self.defaultMultiplier + self.defaultOffsetY
         self._intX = x.astype(int)
