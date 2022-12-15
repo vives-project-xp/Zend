@@ -73,6 +73,7 @@ If by any chance the table enters its alarm state and will not move anymore with
 ### The sender and function class
 
 These two files contain the main functionality for sending the correct GCODE commands to the arduino. 
+The function class contains a getX() and getY() method to give the sender class the necessary X/Y coordinates (and radius if circular movement is required).
 
 ## Webinterface
 ### IP addresses

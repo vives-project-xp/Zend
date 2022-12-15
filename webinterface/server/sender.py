@@ -49,7 +49,7 @@ class Sender:
                 print(value.decode('utf-8'))
             self.__ser.flushInput()
 
-    #hardreset function. Still have to figure out how to make it work for both Y & X axis
+    #hardreset function. 
     def hardReset(self):
         if self.__ser.isOpen():
             self.send("$X")
@@ -58,21 +58,10 @@ class Sender:
             time.sleep(1)
             GPIO.output(24,1)
             time.sleep(1)
-            self.send("G0 X-20")
-            time.sleep(1)
             self.initializeTable()
     
-    #function for stopping the table while it's running
-    def hardStop(self):
-        if self.__ser.isOpen():
-            time.sleep(1)
-            GPIO.output(24,0)
-            time.sleep(1)
-            GPIO.output(24,1)
-            self.initializeTable()
-            
-    #THIS IS THE MAIN FUNCTION FOR DEBUG USE. YOU CAN ENTER MANUAL COMMANDS OR TRY SOME FIGURES
-    #BY TYPING "kerst" OR "parse" OR "star"                
+#THIS IS THE "MAIN" FUNCTION FOR DEBUG USE. YOU CAN ENTER MANUAL COMMANDS OR TRY SOME FIGURES
+#BY TYPING "kerst" OR "parse" OR "star"                
     def manual_command(self):
         try:
 
@@ -88,18 +77,18 @@ class Sender:
                         elif(message == "star"):
                             self.drawStar()
                         elif(message == 'kerst'):
-                            kerstboom = Functions()
-                            kerstboom.cristmasTree()
-                            self.parseLinFunction(kerstboom.getX(), kerstboom.getY())
+                            self.drawTree()
                         elif(message == "parse"):
                             testFunction = Functions()
                             testFunction.clearFunction()
                             self.parseLinFunction(testFunction.getX(), testFunction.getY())
                         elif(message == "poly"):
                             self.drawPolygon()
+                        elif(message == "pointy"):
+                            self.drawPointyStar()
                         elif(message == "stop"):
                             self.hardStop()
-
+                        
                         self.__ser.write((message + "\r\n").encode())
                         time.sleep(0.1)
                         response = self.__ser.readlines()
@@ -109,7 +98,8 @@ class Sender:
         except KeyboardInterrupt:
             print("KeyboardInterrupt has been caught")
                     
-                    
+                      
+    
     #function for drawing 2 mirrored "spirals" 
     def drawSpiral(self):
         i = 1
@@ -126,15 +116,29 @@ class Sender:
     #function for drawing a polygon
     def drawPolygon(self):
         poly = Functions()
-        counter = 0
-        while counter <= 10:
-            poly.drawPolygon(counter, 54, 14)
+        amount = 0
+        while amount <= 10:
+            poly.drawPolygon(amount, 54, 14)
             self.parseLinFunction(poly.getX(), poly.getY())
-            print("this is the counter " + str(counter))
-            counter += 1
-            if counter == 9:
-                counter = 0
-            
+            amount += 1
+            if amount == 9:
+                amount = 0
+    
+    #function for drawing a pointystar
+    def drawPointyStar(self):
+        star = Functions()
+        amount = 0
+        while amount <= 10:
+            star.drawPointedStar(amount, 90)
+            self.parseCircularFunction(star.getX(), star.getY())
+            amount += 1
+            if amount == 9:
+                amount = 0
+
+
+    def curvedStar(self):
+        curvy = Functions()
+        
 
     #function for drawing a christmas tree
     def drawTree(self):
@@ -142,7 +146,8 @@ class Sender:
         tree.christmasTree()
         self.parseLinFunction(tree.getX(), tree.getY())
     
-    #function for drawing a star
+    # function for drawing a 4 pointed curved star that changes
+    # angle. Hardcoded for test purposes.
     def drawStar(self):
         x = 0
         y = 0
@@ -167,10 +172,9 @@ class Sender:
         except KeyboardInterrupt:
                 print("KeyboardInterrupt has been caught")
 
-    #this function can be used to parse a more complex function (see function class)
-    #in a circular motion.
+    # this function can be used to parse a more complex function (see function class)
+    # in a circular motion.
     def parseCircularFunction(self, arrayX, arrayY):
-        while True:
             if self.__ser.isOpen():
                 for x, y in zip(arrayX, arrayY):
                     time.sleep(0.1)

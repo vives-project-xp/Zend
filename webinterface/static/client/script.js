@@ -35,7 +35,9 @@ var patternOptions = [
     {"1" : "Polygon"},
     {"2" : "Star"},
     {"3" : "Spiral"},
-    {"4" : "Christmas tree"},
+    {"4" : "Pointy Star"},
+    {"5" : "Christmas tree"},
+
     
 ];
 
