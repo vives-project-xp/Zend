@@ -23,6 +23,16 @@ height:xxx
 To control the 3d printer we used the grbl library. (https://github.com/grbl/grbl)
 This is an alternative to more complex firmware like Marlin and runs on a vanilla Arduino (or any other model as long as it sports an Atmega 328).
 
+![gShield v5b](./img/gShield.jpg)
+
+To control the stepper motors we use the gShield v5b which is compatible with an arduino uno.
+To get the correct altered firmware on the arduino execute the following steps:
+If you cloned this repo go to the 'grbl-library' folder, extract the grbl.zip to C:\Users\[you user]\Documents\Arduino\libraries
+Now open Arduino IDE (some newer versions of the IDE may cause trouble to execute the next steps, if trouble occurs I recommend using Arduino IDE 1.8.19)
+Go to sketch->Include Library->Add .ZIP library... Now go to documents->Arduino->libraries and select the grbl folder, hit open.
+To upload the file go to File->Examples->grbl->grblUpload.
+Now you can compile and upload the file.
+
 The grbl library is configured through serial communication, so the first step was to write a small program that writes and
 
 Professors suggested we used CNC and GCODE to send commands to the drivers/stepmotors and treat the table as a "2D" 3D printer, cancelling out the Z-axis. 
