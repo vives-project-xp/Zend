@@ -3,6 +3,7 @@
 ## Firmware
 
 ![gShield v5b](./img/gShield.jpg)
+
 To control the stepper motors we use the gShield v5b which is compatible with an arduino uno.
 To get the correct altered firmware on the arduino execute the following steps:
 If you cloned this repo go to the 'grbl-library' folder, extract the grbl.zip to C:\Users\[you user]\Documents\Arduino\libraries
