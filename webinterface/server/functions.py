@@ -33,7 +33,7 @@ class Functions:
         self.defaultGrowth = 1.2
         self.radius = 0
     
-    
+    #testfigure, just a simple 
     def testFigure(self):
         x = np.sin(self._n)**3
         y = np.cos(self._n)**3
@@ -59,8 +59,9 @@ class Functions:
         self.drawPolygon(amount, angle, grow)
         self.setRadius()
 
-    def setRadius(self):
-        self.radius = np.sqrt((self._intX[0][1] - self._intX[0][0])**2 + (self._intY[0][1] - self._intY[0][0])**2)
+    #this doesn't work correctly for circular movements yet. Maybe delete? 
+    def calcRadius(self):
+        self.radius = np.sqrt((self._intX[1] - self._intX[0])**2 + (self._intY[1] - self._intY[0])**2)
 
     def setRadius(self, startPointX, startPointY, endPointX, endPointY):
         self.radius = np.sqrt((endPointX - startPointX)**2 + (endPointY - startPointY)**2)
@@ -122,8 +123,8 @@ class Functions:
             self._yFunction[0][x] = self._yFunction[0][x] * innerGrowth
         self.parser()
 
-    def GetRadius(x1,x2,y1,y2):
-        return np.sqrt((x2 - x1)**2+ (y2 - y1)**2)
+    def GetRadius(self):
+        return self.radius
 
 
     def getX(self):

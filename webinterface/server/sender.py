@@ -14,6 +14,7 @@ class Sender:
     def __init__(self, port):
         self.__port = "/dev/tty" + str(port)
         self.__ser = serial.Serial(self.__port, 115200, timeout = 1)
+        self.__feedRate = 1000
         if self.__ser.isOpen():
             print("everything ok")
             
@@ -28,13 +29,13 @@ class Sender:
             time.sleep(3)
             command = "$h\r\n"
             self.__ser.write(command.encode())
-
             #wait 1 second and set the feedrate for circular movements
             time.sleep(1)
-            self.__ser.write(("F1000 \r\n").encode())
+            self.__ser.write(("F"+str(self.__feedRate)+ "\r\n").encode())
 
             #always flush the input for good measure
             self.__ser.flushInput()
+
 
     #function for sending a manual command. Has to be entered as a string 
     #e.g. message = "G0 X10 Y10"
@@ -144,7 +145,7 @@ class Sender:
         self.parseLinFunction(tree.getX(), tree.getY())
     
     # function for drawing a 4 pointed curved star that changes
-    # angle. Hardcoded for test purposes.
+    # angle. Hardcoded and bloated for test purposes.
     def drawStar(self):
         x = 0
         y = 0
@@ -152,13 +153,13 @@ class Sender:
         try:   
             while True: 
                 self.send("G3 X" + str(x) +" Y" + str(100 + y)+ " R100")
-                time.sleep(3)
+                time.sleep(4)
                 self.send("G3 X" + str(100 + x) + " Y" + str(200 - y) + " R100")
-                time.sleep(3)
+                time.sleep(4)
                 self.send("G3 X" + str(200-x) + " Y" + str(100 - y) + " R100")
-                time.sleep(3)
+                time.sleep(4)
                 self.send("G3 X"+ str(100-x) + " Y" + str(y) + " R100")
-                time.sleep(3)
+                time.sleep(4)
                 x += 20
                 y += 20
                 i += 1
@@ -176,7 +177,7 @@ class Sender:
         if self.__ser.isOpen():
             for x, y in zip(arrayX, arrayY):
                 time.sleep(0.1)                
-                self.send("G3 " +"X" + x + " Y" + y + " I" + str(i))
+                self.send("G3 " +"X" + x + " Y" + y + " R" + str(i))
                 response = self.__ser.readlines()
                 print(response)
                 self.__ser.flushInput()
