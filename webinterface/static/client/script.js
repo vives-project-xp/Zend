@@ -4,7 +4,7 @@
 let ledStatus = document.getElementById('led-status');
 let ledButton = document.getElementById('switch-led');
 
-const url = "http://172.16.103.132/"
+const url = "http://172.16.242.2/"
 var brightness_slider = document.getElementById("brightness");
 var brightness = brightness_slider.value;
 
