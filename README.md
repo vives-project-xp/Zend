@@ -23,12 +23,7 @@ height:xxx
 To control the 3d printer we used the grbl library. (https://github.com/grbl/grbl)
 This is an alternative to more complex firmware like Marlin and runs on a vanilla Arduino (or any other model as long as it sports an Atmega 328).
 
-
-1. X-Y axis can be manipulated in a linear as well as a circular way.
-
-4. RGB library for the ledstrips
-
-The third bullet point presents its own problems. Is this done with fourier? Everything has to be drawn in a single line  I don't think this will be easy. 
+The grbl library is configured through serial communication, so the first step was to write a small program that writes and
 
 Professors suggested we used CNC and GCODE to send commands to the drivers/stepmotors and treat the table as a "2D" 3D printer, cancelling out the Z-axis. 
 
