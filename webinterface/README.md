@@ -27,6 +27,14 @@ Default gateway: 172.16.0.1
 
 ## LED connection
 
+### Pinout ESP8266
+
+To connect the ledstrip to the ESP8266 only 3 pins need to be connected: 3V3, GND and pin 2. Details can be found on the image below.
+
+![ESP8266 pinout](./img/ESP8266-pinout.png)
+
+### Connect to led-strip
+
 When no static IP address has been setup, the connection with the LED-strip had to be setup manually. To do this, follow the steps below:
 
 * Connect the ESP8266 to a PC (or Raspberry Pi) and go to the [WLED install website](https://install.wled.me/).
