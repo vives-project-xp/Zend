@@ -9,37 +9,36 @@ Our assignment was to build a table similar to the "Sisyphus Magic Sand Coffee T
 ## Mechanical/Physical
 
 We used a 3D printer (Ultimaker) and removed the Z-axis controls. A grbl shield attached to an arduino interfaces with the stepper motors.
-For the table itself we used a Lack table from Ikea. The sand itself is kept in a plexiglass tray. The ball is moved by magnets attached to the 3d printer and draws geometrical figures in the sand.
-RGB leds add additional ambience.
+For the table itself we used a [Lack table](https://www.ikea.com/be/nl/p/lack-tafeltje-wit-gelazuurd-eikeneffect-70319028/#content) from Ikea. The sand itself is kept in a plexiglass tray. The ball is moved by magnets attached to the 3D printer and draws geometrical figures in the sand.
+RGB leds add additional ambience and can also be controlled.
 
 ### End switches
 
-To make sure the motors don't go beyond its bounds we had to implement end switches for the Y and X axis.
+To make sure the motors don't go beyond their bounds we had to implement end switches for the Y and X axis.
 Connect the end switches to the gShield like in this schematic (you can just ignore the Z-axis).
 ![end switch schematic](./img/end-switch-schematic.jpg)
 
 **Dimensions**
-width: 48cm x 34cm
-height:xxx
+48cm x 34cm
 
 ## Software
 
 ### Firmware
 
-To control the 3d printer we used the [grbl library](https://github.com/grbl/grbl).
-This is an alternative to more complex firmware like Marlin and runs on a vanilla Arduino (or any other model as long as it sports an Atmega 328).
+To control the 3D printer we used the [grbl library](https://github.com/grbl/grbl).
+This is an alternative to more complex firmware like Marlin and runs on a vanilla Arduino (or any other model as long as it supports an Atmega 328).
 
 ![gShield v5b](./img/gShield.jpg)
 
-To control the stepper motors we use the gShield v5b which is compatible with an arduino uno.
-To get the correct altered firmware on the arduino execute the following steps:
+To control the stepper motors we use the gShield v5b which is compatible with an Arduino uno.
+To get the correct altered firmware on the Arduino execute the following steps:
 If you cloned this repo go to the 'grbl-library' folder, extract the grbl.zip to C:\Users\[your user]\Documents\Arduino\libraries
 Now open Arduino IDE (some newer versions of the IDE may cause trouble to execute the next steps, if trouble occurs I recommend using Arduino IDE 1.8.19)
 Go to sketch->Include Library->Add .ZIP library... Now go to documents->Arduino->libraries and select the grbl folder, hit open.
 To upload the file go to File->Examples->grbl->grblUpload.
 Now you can compile and upload the file.
 
-The grbl library is configured through serial communication, so the first step was to write a small program that writes and reads the Gcodes to and from the Arduino. This is the sand_table.py file in the server map.
+The grbl library is configured through serial communication, so the first step was to write a small program that writes and reads the Gcodes to and from the Arduino. This is the [sand_table.py](./webinterface/server/sand_table.py) file in the server map.
 
 ### debugging & GRBL settings
 
@@ -51,9 +50,9 @@ python sand_table.py
 
 ```
 
-You should now see a command line where you can type your GCODE command directly. 
+You should now see a command line where you can type your GCODE command directly.
 
-type `$$` to see all the current cofiguration settings. For more info on what they mean visit the [grbl wiki](https://github.com/gnea/grbl/wiki).
+type `$$` to see all the current configuration settings. For more info on what they mean visit the [grbl wiki](https://github.com/gnea/grbl/wiki).
 
 Following commands are also defined and recognized:
 
@@ -63,8 +62,8 @@ Following commands are also defined and recognized:
 - kerst (draws a christmas tree)
 - poly (draws a polygon)
 
-CTRL + X cancels any command and stops it 
-`$h` is the command for homing the table. 
+CTRL + X cancels any command and stops it.
+`$h` is the command for homing the table.
 
 **IMPORTANT**
 If by any chance the table enters its alarm state and will not move anymore with a nor.
@@ -89,6 +88,7 @@ Default gateway: 172.16.0.1
 To connect the ledstrip to the ESP8266 only 3 pins need to be connected: 3V3, GND and pin 2. Details can be found on the image below.
 
 ![ESP8266 pinout](./img/ESP8266-pinout.png)
+[source](https://www.google.com/url?sa=i&url=https%3A%2F%2Flearn.adafruit.com%2Fadafruit-feather-huzzah-esp8266%2Fpinouts%3Fview%3Dall&psig=AOvVaw0UI07aMuDnzTYrxg_ZGPF5&ust=1671271754257000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIiL6Mry_fsCFQAAAAAdAAAAABAU)
 
 #### Connect to led-strip
 
