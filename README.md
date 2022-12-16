@@ -2,7 +2,7 @@
 
 ## Project goal
 
-Our assignment was to build a table similar to the "Sisyphus Magic Sand Coffee Table" that displays a sand art image via X-Y coordinates. 
+Our assignment was to build a table similar to the "Sisyphus Magic Sand Coffee Table" that displays a sand art image via X-Y coordinates.
 
 ## Project Breakdown
 
@@ -200,3 +200,19 @@ Then you can surf to the IP address of the Raspberry Pi and access the webinterf
 
 1. Letters & words could be written in the sand. Even better would be if this could be done with a touch screen (maybe this would be something for a future project).
 2. The firmware should be able to take an image and draw the figure in the sand (or at least the crude outlines).
+
+### Extra code
+
+This is a section dedicated to the code that is available in this repo, but is not used in this project. This is code that can be used for different implementations.
+
+#### Led-strip driver
+
+This is a simple directory with a few functions that can drive the led-strip. There is a main file in which a few functions are called to change the look of the led-strip. In the src directory, in the [led.py](./led-strip-driver/src/led.py) file the functions can be found. This works with GET requests sent to the IP address of the led-strip. There is code that makes sure that values will go over the maximum values.
+
+#### Sandtable package
+
+This is the code for a pypi package for the driver of the sand table. This was initially the idea to implement the code from the sand table in the web interface, but this did not work as desired. We have then decided to use a different approach (see above). The package has been created and can be downloaded, but does contain old code so may not work as it should.
+
+This package can be installed with `python3 -m pip install vives-sandtable_package_zend`. Then in the file where you want to use the code: `vives-sandtable_package_zend import Sender`. Now you can use the code to change the patterns on every project you want.
+
+Disclaimer: it is better to use the code in the [server directory](./webinterface/server/) as it is the most up te date.
