@@ -70,7 +70,7 @@ If by any chance the table enters its alarm state and will not move anymore with
 
 ### The sender and function class
 
-These two files contain the main functionality for sending the correct GCODE commands to the arduino.
+These two files contain the main functionality for sending the correct Gcode commands to the arduino.
 The function class contains a getX() and getY() method to give the sender class the necessary X/Y coordinates (and radius if circular movement is required).
 
 ## Webinterface
@@ -85,14 +85,14 @@ Default gateway: 172.16.0.1
 
 #### Pinout ESP8266
 
-To connect the ledstrip to the ESP8266 only 3 pins need to be connected: 3V3, GND and pin 2. Details can be found on the image below.
+To connect the led-strip to the ESP8266 only 3 pins need to be connected: 3V3, GND and pin 2. Details can be found on the image below.
 
 ![ESP8266 pinout](./img/ESP8266-pinout.png)
 [source](https://www.google.com/url?sa=i&url=https%3A%2F%2Flearn.adafruit.com%2Fadafruit-feather-huzzah-esp8266%2Fpinouts%3Fview%3Dall&psig=AOvVaw0UI07aMuDnzTYrxg_ZGPF5&ust=1671271754257000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIiL6Mry_fsCFQAAAAAdAAAAABAU)
 
 #### Connect to led-strip
 
-When no static IP address has been setup, the connection with the LED-strip had to be setup manually. To do this, follow the steps below:
+When no static IP address has been setup, the connection with the led-strip had to be setup manually. To do this, follow the steps below:
 
 * Connect the ESP8266 to a PC (or Raspberry Pi) and go to the [WLED install website](https://install.wled.me/).
 * Click 'Install' and select the right port in the pop up window and connect.
@@ -211,7 +211,7 @@ This is a simple directory with a few functions that can drive the led-strip. Th
 
 #### Sandtable package
 
-This is the code for a pypi package for the driver of the sand table. This was initially the idea to implement the code from the sand table in the web interface, but this did not work as desired. We have then decided to use a different approach (see above). The package has been created and can be downloaded, but does contain old code so may not work as it should.
+This is the code for a PyPI package for the driver of the sand table. This was initially the idea to implement the code from the sand table in the web interface, but this did not work as desired. We have then decided to use a different approach (see above). The package has been created and can be downloaded, but does contain old code so may not work as it should.
 
 This package can be installed with `python3 -m pip install vives-sandtable_package_zend`. Then in the file where you want to use the code: `vives-sandtable_package_zend import Sender`. Now you can use the code to change the patterns on every project you want.
 
