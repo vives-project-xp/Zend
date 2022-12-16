@@ -50,6 +50,9 @@ def change_pattern(pattern_index: int):
         raspberry.drawSpiral()
         print(pattern_index)
     elif(pattern_index == 4):
+        raspberry.drawPointyStar()
+        print(pattern_index)
+    elif(pattern_index == 5):
         raspberry.drawTree()
         print(pattern_index)
 
