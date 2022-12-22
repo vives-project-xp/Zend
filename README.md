@@ -66,7 +66,7 @@ CTRL + X cancels any command and stops it.
 `$h` is the command for homing the table.
 
 **IMPORTANT**
-If by any chance the table enters its alarm state and will not move anymore with a nor.
+If by any chance the table enters its alarm state and will not move anymore even after a hard reset, carefully and SLOWLY (or you will damage the drivers) move the cursor away from the mechanical switches and reset. 
 
 ### The sender and function class
 
@@ -191,6 +191,8 @@ pip3 install setuptools_rust docker-compose
 ```
 
 Check if docker-compose is correctly installed with the `docker-compose --version` and `docker ps` commands.
+
+If the docker-compose command does not work because you installed it as a user, the PATH will probably not be correct. You will have to look it up (usually its under `usrname/.cargo/env/`), run the `source` command again and reboot. 
 
 Build with the `docker-compose up --build` command.
 

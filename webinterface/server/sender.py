@@ -17,6 +17,7 @@ class Sender:
         self.__port = "/dev/tty" + str(port)
         self.__ser = serial.Serial(self.__port, 115200, timeout = 1)
         self.__feedRate = 1000
+        self.__trigger = True
         if self.__ser.isOpen():
             print("everything ok")
             
@@ -55,12 +56,9 @@ class Sender:
     #hardreset function. 
     def hardReset(self):
         if self.__ser.isOpen():
-            self.send("$X")
-            time.sleep(1)
             GPIO.output(24,0)
             time.sleep(1)
             GPIO.output(24,1)
-            time.sleep(1)
             self.initializeTable()
     
 #THIS IS THE "MAIN" FUNCTION FOR DEBUG USE WITH SAND_TABLE.PY. YOU CAN ENTER MANUAL COMMANDS OR TRY SOME FIGURES
@@ -109,7 +107,7 @@ class Sender:
         self.send("G0 X100 Y100")
         time.sleep(3)
         
-        while i < 5:
+        while i < 5 or self.__trigger == True:
             time.sleep(1)
             self.send("G2 X100 Y100 I"+str(i * 10))
             i += 1
@@ -120,7 +118,7 @@ class Sender:
     def drawPolygon(self):
         poly = Functions()
         amount = 0
-        while amount <= 10:
+        while amount <= 10 or self.__trigger == True:
             poly.drawPolygon(amount, 54, 14)
             self.parseLinFunction(poly.getX(), poly.getY())
             amount += 1
@@ -149,11 +147,11 @@ class Sender:
     # function for drawing a 4 pointed curved star that changes
     # angle. Hardcoded and bloated for test purposes.
     def drawStar(self):
-        x = 0
-        y = 0
+        x = 0 
+        y = 0 
         i = 0
         try:   
-            while True: 
+            while True or self.__trigger ==  True: 
                 self.send("G3 X" + str(x) +" Y" + str(100 + y)+ " R100")
                 time.sleep(4)
                 self.send("G3 X" + str(100 + x) + " Y" + str(200 - y) + " R100")
@@ -165,7 +163,7 @@ class Sender:
                 x += 20
                 y += 20
                 i += 1
-                if i == 40:
+                if i == 7:
                     x = 0
                     y = 0
                     i = 0
